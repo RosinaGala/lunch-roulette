@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #F5F5F5;
+      color: #484747;
+    }
+    
+    h1 {
+      font-size: 27px;
+      font-weight: 300;
+      margin-top: 10px;
+    }
+    
+    .App {
+      text-align: center;
+    }
+    
+    .App-logo {
+      height: 80px;
+    }
+    
+    .App-header {
+      background: linear-gradient(150deg, #66CDAA, #F0FFF0 70%);
+      height: 120px;
+      padding: 20px;
+    }
+    
+    .App-intro {
+      font-size: 16px;
+      margin: 20px;
+    }
+    
+    #btn {
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 15px;
+      padding: 13px 50px;
+      border: 1px solid #484747;
+      border-radius: 5px;
+      background:linear-gradient(0deg, #484747 30%, #808080 70%);
+      color: #F3F2F2;
+      box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.30);
+      transition: .4s ease-out;
+    }
+    
+    #btn:hover {
+      background:linear-gradient(180deg, #484747 30%, #808080 70%);
+      cursor: pointer;
+    }
+    
+    #answer {
+      display: none;
+      font-size: 16px;
+      background-color: #E6E6FA;
+      margin: 40px auto;
+      padding: 15px 10px;
+      max-width: 250px;
+      text-align: center;
+      border: 1px solid #484747;
+      border-radius: 5px;
+      box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.30);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="App">
+    <section class="App-header">
+      <img src="roulette.jpg" class="App-logo" alt="logo" />
+      <h1>Lunch Roulette</h1>
+    </section>
+    <section class="App-intro">
+      <p>
+        Es ist hoffentlich mindestens 11 Uhr 24 Minuten!
+      </p>
+      <p>
+        Wo essen wir heute?
+      </p>
+      <a id="btn">
+          Sag du es mir!
+        </a>
+    </section>
+    <section id="answer">
+      <span class="input"></span>
+    </section>
+  </div>
+</body>
+<script>
+  //generate random number
+  var winner = function (min, max) {
+    return Math.floor(Math.random() * (max - min))
+  };
+  // show answer onclick
+  var button = document.getElementById('btn');
+
+  button.onclick = function () {
+    document.getElementById("answer").style.display = "block";
+    //apply random number (0 to restaurants.length) to html layout
+    document.querySelector(".input").innerHTML = restaurants[winner(0, restaurants.length)];
+  };
+
+  var restaurants = [
+    "Coco Thai",
+    "Es ist Dönerstag",
+    "Vapiano lol",
+    "Tawarayayay",
+    "Ede Vesperbot",
+    "Bonobo",
+    "BE WE IH TE",
+    "Auf zum Inder!",
+    "Stones"
+  ];
+
+</script>
+
+</html>
