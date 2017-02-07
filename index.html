@@ -4,7 +4,9 @@
 <head>
   <title></title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <style>
     body {
       margin: 0;
@@ -92,6 +94,8 @@
     </section>
     <section id="answer">
       <span class="input"></span>
+      <span>... und spazieren?</span>
+      <span class="walk"></span>
     </section>
   </div>
 </body>
@@ -105,9 +109,13 @@
 
   button.onclick = function () {
     document.getElementById("answer").style.display = "block";
-    //apply random number (0 to restaurants.length) to html layout
-    document.querySelector(".input").innerHTML = restaurants[winner(0, restaurants.length)];
+    printAnswer(".input", restaurants);
+    printAnswer(".walk", spazieren);
   };
+
+  printAnswer = function (target, array) {
+    document.querySelector(target).innerHTML = array[winner(0, array.length)];
+  }; 
 
   var restaurants = [
     "Coco Thai",
@@ -118,7 +126,15 @@
     "Bonobo",
     "BE WE IH TE",
     "Auf zum Inder!",
-    "Stones"
+    "Stones",
+    "Soul Kitchen"
+  ];
+
+  var spazieren = [
+    "Oh ja, groß.",
+    "LOL da fuq?",
+    "Eine kleine Runde.",
+    "Mit Sicherheit nicht."
   ];
 
 </script>
