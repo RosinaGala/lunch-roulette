@@ -4,7 +4,7 @@
 <head>
   <title></title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <style>
@@ -83,60 +83,79 @@
     </section>
     <section class="App-intro">
       <p>
-        Es ist hoffentlich mindestens 11 Uhr 24 Minuten!
+        Wie lange habt ihr Zeit?
       </p>
-      <p>
-        Wo essen wir heute?
-      </p>
+      <form action="">
+        <input type="radio" name="time" id="short" value="short"> 
+          <label>kurz</label>
+        <input type="radio" name="time" id="medium" value="medium" checked>
+          <label>mittel</label>
+        <input type="radio" name="time" id="long" value="long">
+          <label>lang</label>
+      </form>
       <a id="btn">
-          Sag du es mir!
+          Wo essen wir heute?
         </a>
     </section>
     <section id="answer">
       <span class="input"></span>
-      <span>... und spazieren?</span>
+      <span>und spazieren?</span>
       <span class="walk"></span>
     </section>
   </div>
 </body>
 <script>
-  //generate random number
-  var winner = function (min, max) {
-    return Math.floor(Math.random() * (max - min))
-  };
-  // show answer onclick
-  var button = document.getElementById('btn');
 
-  button.onclick = function () {
-    document.getElementById("answer").style.display = "block";
-    printAnswer(".input", restaurants);
-    printAnswer(".walk", spazieren);
-  };
+//generate random number
+var winner = function (min, max) {
+  return Math.floor(Math.random() * (max - min));
+}; 
 
-  printAnswer = function (target, array) {
-    document.querySelector(target).innerHTML = array[winner(0, array.length)];
-  }; 
+short = ["Ede", "Stones", "Gref-Völsing"];
+medium = ["Coco Thai", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food"];
+long = ["Best Woscht in Town", "Das Leben ist schön"];
 
-  var restaurants = [
-    "Coco Thai",
-    "Es ist Dönerstag",
-    "Vapiano lol",
-    "Tawarayayay",
-    "Ede Vesperbot",
-    "Bonobo",
-    "BE WE IH TE",
-    "Auf zum Inder!",
-    "Stones",
-    "Soul Kitchen"
-  ];
+var spazieren = [
+  "Oh ja, ausgiebig.",
+  "LOL nein.",
+  "Eine kleine Runde.",
+  "Mit Sicherheit nicht."
+];
 
-  var spazieren = [
-    "Oh ja, groß.",
-    "LOL da fuq?",
-    "Eine kleine Runde.",
-    "Mit Sicherheit nicht."
-  ];
+//generate restaurant output depending on checked radio button
+duration = function() {
+  if(document.getElementById("short").checked) {
+    //short radio button is checked
+    var duration = short
+    return duration;
+    console.log(duration);
+  }
+  else if(document.getElementById("medium").checked) {
+    //medium radio button is checked
+    var duration = medium.concat(short);
+    return duration;
+    console.log(duration);
+  }
+  else if (document.getElementById("long").checked) {
+    //long radio button is checked
+    var duration = long.concat(short, medium);
+    return duration;
+     console.log(duration);
+  }
+};
 
+// show answer onclick
+button = document.getElementById('btn');
+
+button.onclick = function () {
+  document.getElementById("answer").style.display = "block";
+  printAnswer(".input", duration());
+  printAnswer(".walk", spazieren);
+};
+
+printAnswer = function (target, array) {
+  document.querySelector(target).innerHTML = array[winner(0, array.length)];
+};
 </script>
 
 </html>
