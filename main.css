@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Suez One', serif;
+  color: #F5F5F5;
+  text-align: center;
+  background-image: url(1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+    
+h1 {
+  font-size: 42px;
+  margin: 10px 0 0 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 15px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 3px;
+}
+    
+header {
+  height: 180px;
+  padding: 20px;
+}
+
+#formular{
+  font-size: 16px;
+  margin: 20px;
+}
+
+input {
+  margin: 0 20px;
+}
+
+form {
+  position: relative;
+}
+
+label {
+  position: absolute;
+  top: 15px;
+  margin-left: -50px;
+}
+
+#btn {
+  position: absolute;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+}
+
+#btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #F5F5F5;
+  border-radius: 50%;
+  background-color: #F5F5F5;
+  box-shadow: 0px 9px 16px 5px rgba(0,0,0,0.6);
+}
+
+#btn span {
+  color: #AD1457;
+}
+
+#btn:hover {
+  cursor: pointer;
+}
+
+#answer {
+  display: none;
+  font-size: 16px;
+  color: #AD1457;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#answer .input {
+  min-width: 50%;
+  padding: 20px;
+  background-color: #F5F5F5;
+  box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.30);
+  margin: 5px 0;
+}
+@media (max-width: 530px){
+  #answer .input {
+    min-width: 75%;
+  }
+}

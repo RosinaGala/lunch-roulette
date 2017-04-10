@@ -1,161 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
-  <title></title>
+  <title>Lunch Roulette</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #F5F5F5;
-      color: #484747;
-    }
-    
-    h1 {
-      font-size: 27px;
-      font-weight: 300;
-      margin-top: 10px;
-    }
-    
-    .App {
-      text-align: center;
-    }
-    
-    .App-logo {
-      height: 80px;
-    }
-    
-    .App-header {
-      background: linear-gradient(150deg, #66CDAA, #F0FFF0 70%);
-      height: 120px;
-      padding: 20px;
-    }
-    
-    .App-intro {
-      font-size: 16px;
-      margin: 20px;
-    }
-    
-    #btn {
-      display: inline-block;
-      text-decoration: none;
-      margin-top: 15px;
-      padding: 13px 50px;
-      border: 1px solid #484747;
-      border-radius: 5px;
-      background:linear-gradient(0deg, #484747 30%, #808080 70%);
-      color: #F3F2F2;
-      box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.30);
-      transition: .4s ease-out;
-    }
-    
-    #btn:hover {
-      background:linear-gradient(180deg, #484747 30%, #808080 70%);
-      cursor: pointer;
-    }
-    
-    #answer {
-      display: none;
-      font-size: 16px;
-      background-color: #E6E6FA;
-      margin: 40px auto;
-      padding: 15px 10px;
-      max-width: 250px;
-      text-align: center;
-      border: 1px solid #484747;
-      border-radius: 5px;
-      box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.30);
-    }
-
-  </style>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-  <div class="App">
-    <section class="App-header">
-      <img src="roulette.jpg" class="App-logo" alt="logo" />
-      <h1>Lunch Roulette</h1>
-    </section>
-    <section class="App-intro">
-      <p>
-        Wie lange habt ihr Zeit?
-      </p>
+    <header>
+      <h1>Lunch<br />Roulette</h1>
+      <h2>Essen ist die wichtigste Mahlzeit am Tag.</h2>
+    </header>
+    <section id="formular">
       <form action="">
-        <input type="radio" name="time" id="short" value="short"> 
-          <label>kurz</label>
+        <input type="radio" name="time" id="short" value="short">
+        <label>kurz</label>
         <input type="radio" name="time" id="medium" value="medium" checked>
-          <label>mittel</label>
+        <label>mittel</label>
         <input type="radio" name="time" id="long" value="long">
-          <label>lang</label>
+        <label>lang</label>
       </form>
-      <a id="btn">
-          Wo essen wir heute?
-        </a>
+    </section>
+    <section id="btn">
+      <a><span>Jetzt unbedingt<br />HIER KLICKEN</span></a>
     </section>
     <section id="answer">
-      <span class="input"></span>
-      <span>und spazieren?</span>
-      <span class="walk"></span>
+      <div class="input"></div>
+      <div class="input">
+        <span>und spazieren?</span>
+        <span class="walk"></span>
+      </div>
     </section>
-  </div>
 </body>
-<script>
-
-//generate random number
-var winner = function (min, max) {
-  return Math.floor(Math.random() * (max - min));
-}; 
-
-short = ["Ede", "Stones", "Gref-Völsing"];
-medium = ["Coco Thai", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food"];
-long = ["Best Woscht in Town", "Das Leben ist schön"];
-
-var spazieren = [
-  "Oh ja, ausgiebig.",
-  "LOL nein.",
-  "Eine kleine Runde.",
-  "Mit Sicherheit nicht."
-];
-
-//generate restaurant output depending on checked radio button
-duration = function() {
-  if(document.getElementById("short").checked) {
-    //short radio button is checked
-    var duration = short
-    return duration;
-    console.log(duration);
-  }
-  else if(document.getElementById("medium").checked) {
-    //medium radio button is checked
-    var duration = medium.concat(short);
-    return duration;
-    console.log(duration);
-  }
-  else if (document.getElementById("long").checked) {
-    //long radio button is checked
-    var duration = long.concat(short, medium);
-    return duration;
-     console.log(duration);
-  }
-};
-
-// show answer onclick
-button = document.getElementById('btn');
-
-button.onclick = function () {
-  document.getElementById("answer").style.display = "block";
-  printAnswer(".input", duration());
-  printAnswer(".walk", spazieren);
-};
-
-printAnswer = function (target, array) {
-  document.querySelector(target).innerHTML = array[winner(0, array.length)];
-};
-</script>
-
+<script src="script.js"></script>
 </html>
