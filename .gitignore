@@ -1,15 +1,13 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# dependencies
-node_modules
-
-# testing
-coverage
-
-# production
+.idea/
+.vscode/
+node_modules/
 build
-
-# misc
 .DS_Store
-.env
-npm-debug.log
+*.tgz
+my-app*
+template/src/__tests__/__snapshots__/
+lerna-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.changelog

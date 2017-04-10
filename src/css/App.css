@@ -7,7 +7,7 @@ body {
   font-family: 'Suez One', serif;
   color: #F5F5F5;
   text-align: center;
-  background-image: url(1.jpg);
+  background-image: url(../images/1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
