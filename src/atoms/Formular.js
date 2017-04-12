@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Formular extends Component {
   //generates restaurant output depending on checked time span
   duration = function () {
-    var short = ["Ede", "Stones", "Gref-Völsing"];
-    var medium = ["Coco Thai", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food"];
-    var long = ["Best Woscht in Town", "Das Leben ist schön"];
+    var short = ["Ede", "Stones"];
+    var medium = ["Coco Thai", "Atelierfrankfurt", "zur Insel", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food Factory"];
+    var long = ["Best Woscht in Town", "Aroydee", "Das Leben ist schön", "Frankfurter Küche", "Jamies Burger", "Oosten", "Himalaya-Laternchen"];
     if (document.getElementById("short").checked) {
       //short radio button is checked
       var duration = short

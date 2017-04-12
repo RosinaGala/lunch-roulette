@@ -5,6 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Suez One', serif;
+  font-weight: bold;
   color: #F5F5F5;
   text-align: center;
   background-image: url(../images/1.jpg);
@@ -79,6 +80,10 @@ input[type="radio"] + label::after {
   transform: translate(-50%, 50%);
 }
 
+label:link    {color:red;}
+label:visited {color:pink;}
+
+
 input[type="radio"]:checked + label::after {
   width: 15px;
   height: 15px;
@@ -95,7 +100,7 @@ label {
   cursor: pointer;
 	padding-left: 20px;
 	padding-right: 20px;
-
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #btn {
@@ -108,7 +113,7 @@ label {
   right: 0;
 }
 
-#btn button {
+button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,6 +126,11 @@ label {
   box-shadow: 0px 9px 16px 5px rgba(0,0,0,0.6);
   font-family: inherit;
   font-size: inherit;
+  font-weight: inherit;
+}
+
+button:focus {
+  outline:0;
 }
 
 #btn span {
