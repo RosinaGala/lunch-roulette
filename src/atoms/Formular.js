@@ -48,24 +48,22 @@ class Formular extends Component {
   render() {
     return (
       <div id="remove">
-        <section id="formular">
-          <div className="form">
+        <section className="formular">
             <p>
             <input type="radio" name="time" id="short" value="short"/>
-            <label htmlFor="short">kurz</label>
+            <label htmlFor="short">asapst weiter&shy;arbeiten</label>
             </p>
             <p>
             <input type="radio" name="time" id="medium" value="medium" defaultChecked />
-            <label htmlFor="medium">mittel</label>
+            <label htmlFor="medium">normal, business as usual</label>
             </p>
             <p>
             <input type="radio" name="time" id="long" value="long" />
-            <label htmlFor="long">lang</label>
+            <label htmlFor="long">mal entspannt abloungen</label>
             </p>
-          </div>
         </section>
-        <section id="btn">
-          <button href="#" onClick={this.click.bind(this)}><span>Jetzt unbedingt<br />HIER KLICKEN</span></button>
+        <section className="buttonWrap">
+          <button role="button" onClick={this.click.bind(this)}>Jetzt unbedingt<br />HIER KLICKEN</button>
         </section>
       </div>
     );
