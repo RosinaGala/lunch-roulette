@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Formular extends Component {
   //generates restaurant output depending on checked time span
-  duration = function () {
+  duration = () => {
     var short = ["Ede", "Stones"];
     var medium = ["Coco Thai", "Atelierfrankfurt", "zur Insel", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food Factory"];
     var long = ["Best Woscht in Town", "Aroydee", "Das Leben ist schön", "Frankfurter Küche", "Jamies Burger", "Oosten", "Himalaya-Laternchen"];
@@ -23,23 +23,17 @@ class Formular extends Component {
     }
   };
   //generates random number
-  winner = function (min, max) {
-    return Math.floor(Math.random() * (max - min));
-  };
+  winner =  (min, max) => Math.floor(Math.random() * (max - min));
   // gets target element and fills in random winner output depending on the chosen array
-  printAnswer = function (target, array) {
-    document.querySelector(target).innerHTML = array[this.winner(0, array.length)];
-  };
-  removeStuff = function (which, how) {
-    document.getElementById(which).style.display = how;
-  };
-  NeedRemoved = function () {
+  printAnswer = (target, array) => document.querySelector(target).innerHTML = array[this.winner(0, array.length)];
+  removeStuff = (which, how) => document.getElementById(which).style.display = how;
+  NeedRemoved = () => {
     var body = document.getElementsByTagName("body")[0];
     this.removeStuff("remove", "none");
     this.removeStuff("answer", "flex");
     body.className += "result";
   };
-  click = function(){
+  click = () => {
     var spazieren = ["Oh ja, ausgiebig.", "LOL nein.", "Eine kleine Runde.", "Mit Sicherheit nicht."];
     this.NeedRemoved();
     this.printAnswer(".input", this.duration());

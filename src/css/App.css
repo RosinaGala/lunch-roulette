@@ -10,7 +10,7 @@ body {
   text-align: center;
   background-image: url(../images/1.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
 
 body.result {
@@ -160,17 +160,26 @@ button:hover {
 }
 
 @media (min-width:461px){
-  #formular {
+  .formular {
     margin-top: 150px;
     font-size: 26px;
   }
-  .form p {
+  .formular p {
     width: 110px;
   }
-  #btn {
-    bottom: 15%;
+  .buttonWrap {
+    bottom: 17%;
     }
   input[type="radio"] + label::before, input[type="radio"] + label::after {
     bottom: 150%;
+  }
+  #answer {
+    margin-top: 10%;
+  }
+}
+
+@media (min-width:555px){
+  body {
+  background-size: contain;
   }
 }
