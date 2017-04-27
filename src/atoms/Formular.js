@@ -1,27 +1,6 @@
 import React, { Component } from 'react';
 
 class Formular extends Component {
-  //generates restaurant output depending on checked time span
-  duration = () => {
-    var short = ["Ede", "Stones"];
-    var medium = ["Coco Thai", "Atelierfrankfurt", "zur Insel", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food Factory"];
-    var long = ["Best Woscht in Town", "Aroydee", "Das Leben ist schön", "Frankfurter Küche", "Jamies Burger", "Oosten", "Himalaya-Laternchen"];
-    if (document.getElementById("short").checked) {
-      //short radio button is checked
-      var duration = short
-      return duration;
-    }
-    else if (document.getElementById("medium").checked) {
-      //medium radio button is checked
-      var duration = medium.concat(short);
-      return duration;
-    }
-    else if (document.getElementById("long").checked) {
-      //long radio button is checked
-      var duration = long.concat(short, medium);
-      return duration;
-    }
-  };
   //generates random number
   winner =  (min, max) => Math.floor(Math.random() * (max - min));
   // gets target element and fills in random winner output depending on the chosen array
@@ -34,28 +13,15 @@ class Formular extends Component {
     body.className += "result";
   };
   click = () => {
-    var spazieren = ["Oh ja, ausgiebig.", "LOL nein.", "Eine kleine Runde.", "Mit Sicherheit nicht."];
+    var spazieren = ["Oh ja, ausgiebig.", "LOL da fuq?", "Eine kleine Runde.", "Mit Sicherheit nicht."];
+    var restaurants = ["Coco Thai",  "Es ist Dönerstag", "Vapiano lol", "Tawarayayay", "Ede Vesperbot", "Bonobo", "BE WE IH TE", "Auf zum Inder!", "Stones", "Soul Kitchen"];
     this.NeedRemoved();
-    this.printAnswer(".input", this.duration());
+    this.printAnswer(".input", restaurants);
     this.printAnswer(".walk", spazieren);
   };
   render() {
     return (
       <div id="remove">
-        <section className="formular">
-            <p>
-            <input type="radio" name="time" id="short" value="short"/>
-            <label htmlFor="short">asapst weiter&shy;arbeiten</label>
-            </p>
-            <p>
-            <input type="radio" name="time" id="medium" value="medium" defaultChecked />
-            <label htmlFor="medium">normal, business as usual</label>
-            </p>
-            <p>
-            <input type="radio" name="time" id="long" value="long" />
-            <label htmlFor="long">mal entspannt abloungen</label>
-            </p>
-        </section>
         <section className="buttonWrap">
           <button role="button" onClick={this.click.bind(this)}>Jetzt unbedingt<br />HIER KLICKEN</button>
         </section>
