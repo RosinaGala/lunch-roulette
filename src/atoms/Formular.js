@@ -8,17 +8,17 @@ class Formular extends Component {
     var long = ["Best Woscht in Town", "Aroydee", "Das Leben ist schön", "Frankfurter Küche", "Jamies Burger", "Oosten", "Himalaya-Laternchen"];
     if (document.getElementById("short").checked) {
       //short radio button is checked
-      var duration = short
+      let duration = short
       return duration;
     }
     else if (document.getElementById("medium").checked) {
       //medium radio button is checked
-      var duration = medium.concat(short);
+      let duration = medium.concat(short);
       return duration;
     }
     else if (document.getElementById("long").checked) {
       //long radio button is checked
-      var duration = long.concat(short, medium);
+      let duration = long.concat(short, medium);
       return duration;
     }
   };
