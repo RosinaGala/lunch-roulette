@@ -3,24 +3,45 @@ import React, { Component } from 'react';
 class Formular extends Component {
   constructor(props){
     super(props);
-    this.click = this.click.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
+    this.handleClick= this.handleClick.bind(this);
     this.state = {
       selectedOption: 'medium'
     };
-    this.handleOptionChange = this.handleOptionChange.bind(this);
 };
-  click = (e) => {
-    e.preventDefault();
-    this.props.handler();
+  //generates restaurant output depending on checked time span
+  getDuration = () => {
+    var short = ["Ede", "Stones"];
+    var medium = ["Coco Thai", "Atelierfrankfurt", "zur Insel", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food Factory"];
+    var long = ["Best Woscht in Town", "Aroydee", "Das Leben ist schön", "Frankfurter Küche", "Jamies Burger", "Oosten", "Himalaya-Laternchen"];
+    if (document.getElementById("short").checked) {
+      //short radio button is checked
+      let duration = short
+      return duration;
+    }
+    else if (document.getElementById("medium").checked) {
+      //medium radio button is checked
+      let duration = medium.concat(short);
+      return duration;
+    }
+    else if (document.getElementById("long").checked) {
+      //long radio button is checked
+      let duration = long.concat(short, medium);
+      return duration;
+    }
   };
-  handleOptionChange(e) {
+handleClick(e) {
+  const answer = this.getDuration();
+  this.props.handler(answer);
+};
+handleOptionChange(e) {
   this.setState({
     selectedOption: e.currentTarget.value
   });
 };
   render() {
     return (
-      <div id="remove">
+      <form> 
         <section className="formular">
             <p>
             <input type="radio" name="time" id="short" value="short" checked={this.state.selectedOption === 'short'} onChange={this.handleOptionChange}  />
@@ -36,9 +57,9 @@ class Formular extends Component {
             </p>
         </section>
         <section className="buttonWrap">
-          <button role="button" onClick={this.click}>Jetzt unbedingt<br />HIER KLICKEN</button>
+          <button role="button" type="button" onClick={this.handleClick} value="Submit">Jetzt unbedingt<br />HIER KLICKEN</button>
         </section>
-      </div>
+      </form>
     );
   }
 };

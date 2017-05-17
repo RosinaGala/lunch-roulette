@@ -11,16 +11,17 @@ class App extends Component {
             showAnswer: false
         };
     }
-    handler() {
+    handler(answer) {
        this.setState({
-            showAnswer: true
+            showAnswer: true,
+            answer: answer
         });
   }
   render() {
     return (
         <div>
             <Header />
-            {this.state.showAnswer ? <Answer/> : <Formular handler={this.handler} />}
+            {this.state.showAnswer ? <Answer duration={this.state.answer} /> : <Formular handler={this.handler} />}
         </div>
     );
   }
