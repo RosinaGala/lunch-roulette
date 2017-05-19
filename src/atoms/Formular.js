@@ -31,8 +31,8 @@ class Formular extends Component {
     }
   };
 handleClick(e) {
-  const answer = this.getDuration();
-  this.props.handler(answer);
+  const result = this.getDuration();
+  this.props.handler(result);
 };
 handleOptionChange(e) {
   this.setState({

@@ -7,14 +7,17 @@ class Answer extends Component {
       this.printAnswer(".input", this.props.duration);
       this.printAnswer(".walk", spazieren);
   };
-  //generates random number
-  winner =  (min, max) => Math.floor(Math.random() * (max - min));
+
+  generateRandomNumber =  (min, max) => Math.floor(Math.random() * (max - min));
+
   // gets target element and fills in random winner output depending on the chosen array
-  printAnswer = (target, array) => document.querySelector(target).innerHTML = array[this.winner(0, array.length)];
+  printAnswer = (target, array) => document.querySelector(target).innerHTML = array[this.generateRandomNumber(0, array.length)];
+  
   changeBackground = () => {
     var body = document.getElementsByTagName("body")[0];
     body.className += "result";
   };
+  
   render() {
     return (
         <section id="answer">
