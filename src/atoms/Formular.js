@@ -11,22 +11,19 @@ class Formular extends Component {
 };
   //generates restaurant output depending on checked time span
   getDuration = () => {
-    var short = ["Ede", "Stones"];
-    var medium = ["Coco Thai", "Atelierfrankfurt", "zur Insel", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food Factory"];
-    var long = ["Best Woscht in Town", "Aroydee", "Das Leben ist schön", "Frankfurter Küche", "Jamies Burger", "Oosten", "Himalaya-Laternchen"];
+    const short = ["Ede", "Stones"];
+    const medium = [...short, "Coco Thai", "Atelierfrankfurt", "zur Insel", "Auf ins Dönerparadies", "Vapiano lol", "Tawarayaya", "Bun Bo", "Indian Curry House", "Quantum", "Soul Food Factory"];
+    const long = [...medium, "Best Woscht in Town", "Aroydee", "Das Leben ist schön", "Frankfurter Küche", "Jamies Burger", "Oosten", "Himalaya-Laternchen"];
     if (document.getElementById("short").checked) {
-      //short radio button is checked
       let duration = short
       return duration;
     }
     else if (document.getElementById("medium").checked) {
-      //medium radio button is checked
-      let duration = medium.concat(short);
+      let duration = medium;
       return duration;
     }
     else if (document.getElementById("long").checked) {
-      //long radio button is checked
-      let duration = long.concat(short, medium);
+      let duration = long;
       return duration;
     }
   };
