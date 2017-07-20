@@ -6,7 +6,7 @@ class Header extends Component {
     return (
         <header>
           <h1>Lunch<br />Roulette</h1>
-          <h2>Essen ist die wichtigste Mahlzeit am Tag.</h2>
+          <h2>Fooden ist die wichtigste Mahlzeit am Tag.</h2>
         </header>
     );
   }
